@@ -13,3 +13,8 @@ jobs:
           git checkout main
       - name: List Files
         run: ls -la
+      - name: Debug - Print workflow info
+        run: |
+          echo "Workflow name: ${{ github.workflow }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Run number: ${{ github.run_number }}"
