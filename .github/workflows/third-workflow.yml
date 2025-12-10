@@ -12,7 +12,7 @@ jobs:
           git fetch origin
           git checkout main
       - name: List Files
-        run: ls -la
+        run: lsaa -la
       - name: Debug - Print workflow info
         run: |
           echo "Workflow name: ${{ github.workflow }}"
