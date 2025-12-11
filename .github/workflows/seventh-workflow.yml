@@ -1,0 +1,13 @@
+name: Seventh Workflow
+on:
+  schedule:
+    - cron: "*/5 * * * *" # runs every five minutes
+
+jobs:
+  first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display event variables
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
