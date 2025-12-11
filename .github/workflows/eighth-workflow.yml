@@ -7,12 +7,26 @@ on:
         type: string
         required: true
         default: "Hello, World!"
+      custom_select:
+        description: Select a value
+        type: choice
+        required: true
+        options:
+          - Value 1
+          - Value 2
+          - Value 3
+        default: "Value 1"
+      custom_checkbox:
+        description: Checkbox
+        type: boolean
+        require: false
 
 jobs:
   run-first:
     runs-on: ubuntu-latest
     steps:
-      - name: Display a value from the workflow input
+      - name: Display a value from the workflow inputs
         run: |
           echo "Title: ${{inputs.titleCustom}}"
-          echo $GITHUB_REF
+          echo "Selelc: ${{inputs.custom_select}}"
+          echo "Checkbox: ${{inputs.custom_checkbox}}"
