@@ -1,0 +1,21 @@
+name: Sixth Workflow
+on:
+  push:
+    branches:
+      - main
+      - "page/*"
+#    branches-ignore:
+#      - "page/blog"
+#    tags:
+#      - "v1.*"
+    paths:
+      - "**.html"
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event Variables
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
