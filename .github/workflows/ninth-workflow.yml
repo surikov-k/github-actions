@@ -1,0 +1,12 @@
+name: Ninth Workflow
+on:
+  repository_dispatch:
+    types: [test]
+
+jobs:
+  runs-first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display the client payload
+        run: |
+          echo "Title: ${{github.event.client_payload.title_test}}"
