@@ -1,0 +1,17 @@
+name: Tenth Workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  runs-first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display some github contexts
+        id: context_and_expressions
+        run: |
+          echo "Title: ${{toJSON(github)}}"
+          echo "Title: ${{toJSON(runner)}}"
+          echo "Title: ${{toJSON(job)}}"
+          echo "Title: ${{toJSON(steps)}}"
