@@ -4,6 +4,7 @@ on: push
 jobs:
   run-first:
     runs-on: ubuntu-latest
+    environment: "production"
     steps:
       - name: Our vars and secrets
         run: |
