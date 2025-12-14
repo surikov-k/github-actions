@@ -6,7 +6,8 @@ jobs:
 #    failure() success() always() canceled()
     runs-on: ubuntu-latest
     steps:
-      - name: First Step
+      - name: Erroneous Step
+        id: erroneous-step
 #        run: sleep 30
         run: exit 1
 
@@ -23,7 +24,7 @@ jobs:
         run: echo "Runs on success! 🎉"
 
       - name: Runs on Failure
-        if: ${{failure()}}
+        if: ${{failure() && steps.erroneous-step.conclusion == 'failure'}}
         run: echo "Runs on failure! 💩"
 
   second-job:
