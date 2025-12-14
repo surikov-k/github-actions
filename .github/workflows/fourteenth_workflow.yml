@@ -1,0 +1,19 @@
+name: Fourteenth Workflow
+on: workflow_dispatch
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache node_modules
+        id: cache-step
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: 'cache-file'
+      - name: Display Cache
+        run: echo '${{toJSON(steps.cache-step.outputs)}}'
+
+      - name: Install node dependencies
+        run: npm i
