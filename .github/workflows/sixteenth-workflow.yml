@@ -3,10 +3,13 @@ on: push
 
 jobs:
   testing-matrix-job:
+    strategy:
+      matrix:
+        node-versions: [12, 14, 18]
     runs-on: ubuntu-latest
     steps:
       - run: node -v
       - uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: ${{ matrix.node-versions}}
       - run: node -v
