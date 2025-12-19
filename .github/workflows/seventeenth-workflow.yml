@@ -1,0 +1,14 @@
+name: Seventeenth Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Custom Title"
+        type: string
+        default: "Testing te text title"
+        required: false
+jobs:
+  call_workflow:
+    uses: './.github/workflows/reusable-workflow.yml'
+    with:
+      title: ${{ inputs.title}}
