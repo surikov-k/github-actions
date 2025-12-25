@@ -1,9 +1,15 @@
 name: 'Install and Cache Node Modules'
 description: 'Some Description'
+inputs:
+  caching:
+    required: false
+    description: "Enable or disable caching"
+    default: 'true'
 runs:
   using: composite
   steps:
    - name: Cache node_modules
+     if: inputs.caching == 'true'
      id: cache-step
      uses: actions/cache@v3
      with:
